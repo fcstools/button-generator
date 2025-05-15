@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FCS Buy Now Button Generator - Shopify App</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa; /* Light grey background */
+            color: #212529; /* Darker text for better readability */
+        }
+        .container {
+            width: 90%;
+            max-width: 960px;
+            margin: 30px auto;
+            padding: 25px;
+            background-color: #ffffff; /* White content area */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        header {
+            text-align: center;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #dee2e6; /* Lighter border */
+            margin-bottom: 25px;
+        }
+        .app-logo {
+            max-width: 180px; /* Slightly larger logo allowance */
+            height: auto;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 2.5em; /* Larger main title */
+            color: #007bff; /* Shopify-esque blue */
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 1.75em;
+            color: #343a40; /* Dark grey for section titles */
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #007bff; /* Blue accent */
+            display: inline-block;
+        }
+        h3 {
+            font-size: 1.25em;
+            color: #495057; /* Slightly lighter grey for sub-headings */
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        p, li {
+            margin-bottom: 15px;
+            color: #495057; /* Consistent text color */
+            font-size: 1.05em;
+        }
+        .app-description-main {
+            font-size: 1.15em;
+            margin-bottom: 25px;
+        }
+        .screenshots-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+            margin-top: 25px;
+            padding: 15px 0;
+        }
+        .screenshots-container img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ced4da; /* Light border for images */
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.07);
+            flex-basis: calc(50% - 12.5px); /* For two images side-by-side */
+            max-width: 420px;
+        }
+        .cta-section {
+            text-align: center;
+            margin-top: 40px;
+            padding: 25px;
+            background-color: #e9ecef; /* Light grey for CTA background */
+            border-radius: 8px;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #28a745; /* Shopify green */
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-top: 15px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .cta-button:hover {
+            background-color: #218838; /* Darker green on hover */
+            transform: translateY(-2px);
+        }
+        .setup-guide ul, .setup-guide ol {
+            padding-left: 20px;
+        }
+        .setup-guide li {
+            margin-bottom: 10px;
+        }
+        .setup-guide code {
+            background-color: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 1px solid #dee2e6;
+            font-size: 0.95em;
+            color: #6c757d; /* Muted color for footer text */
+        }
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.5em; }
+            .screenshots-container img {
+                flex-basis: 100%; /* Stack images on smaller screens */
+                max-width: 100%;
+            }
+            .container {
+                width: 95%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <!-- 1. Your App Logo -->
+            <img src="placeholder-logo.png" alt="FCS Buy Now Button Generator Logo" class="app-logo">
+            <h1>FCS Buy Now Button Generator</h1>
+            <p>Streamline Your Shopify Checkout Experience</p>
+        </header>
+
+        <main>
+            <section id="description">
+                <h2>About The App</h2>
+                <p class="app-description-main">
+                    This app solves the problem of crowded product pages and potentially confusing multiple payment options by providing a single, clear "Buy it now" button. It allows merchants to effectively replace the default dynamic checkout buttons and the "More payment options" link. Instead of presenting multiple express checkout options upfront, customers are directed straight from the product page to a unified checkout experience when clicking your dedicated button.
+                </p>
+            </section>
+
+            <section id="key-features">
+                <h2>Key Features</h2>
+                <ul>
+                    <li><strong>Simplified Checkout:</strong> Replaces multiple dynamic buttons with one clear "Buy it Now" button.</li>
+                    <li><strong>Reduced Clutter:</strong> Hides "More payment options" for a cleaner product page.</li>
+                    <li><strong>Direct to Checkout:</strong> Sends customers directly to the standard Shopify checkout process.</li>
+                    <li><strong>Easy Integration:</strong> Utilizes Shopify's App Block system for seamless theme integration.</li>
+                    <li><strong>Customizable Button Text:</strong> Tailor the button label to match your brand's voice.</li>
+                </ul>
+            </section>
+
+            <section id="visuals">
+                <h2>See It In Action</h2>
+                <div class="screenshots-container">
+                    <!-- 2. Screenshot 1 - Replace with your image -->
+                    <img src="placeholder-screenshot1.jpg" alt="Screenshot of Product Page Before App">
+                    <!-- 3. Screenshot 2 - Replace with your image -->
+                    <img src="placeholder-screenshot2.jpg" alt="Screenshot of Product Page After App with Buy Now Button">
+                </div>
+            </section>
+
+            <section id="setup-guide" class="setup-guide">
+                <h2>How to Set Up and Use the "Buy It Now Button" App</h2>
+                <p>This guide will walk you through adding and configuring the "Buy It Now Button" App Block on your product pages. This app provides a simplified purchase experience by adding a custom "Buy It Now" button, hiding the default dynamic checkout buttons, and directing customers straight to the standard Shopify checkout.</p>
+
+                <h3>Prerequisites:</h3>
+                <ul>
+                    <li>Ensure that Dynamic Checkout Buttons are enabled in your Shopify Payments settings. You can find this under <code>Shopify Admin > Settings > Payments > Dynamic checkout buttons</code>.</li>
+                </ul>
+
+                <h3>Installation:</h3>
+                <p>After installing the app from the Shopify App Store or via a direct link, the "Buy It Now Button" functionality becomes available as an App Block within your theme editor.</p>
+
+                <h3>Setup and Configuration:</h3>
+                <p>To add the "Buy It Now" button to a product page:</p>
+                <ol>
+                    <li>Go to your Shopify Admin and navigate to <strong>Online Store > Themes</strong>.</li>
+                    <li>Find your active theme and click the <strong>Customize</strong> button.</li>
+                    <li>In the theme editor, use the page selector dropdown at the top (usually showing "Home page") to select <strong>Products > Default product</strong>. If you use custom product templates, select the specific template where you want the button.</li>
+                    <li>In the left sidebar that shows your page structure, find the section that typically contains your product form. This is often named "Product information", "Product details", or similar. Click on this section to expand its settings.</li>
+                    <li>Inside the section settings in the left sidebar, scroll down and click <strong>Add block</strong>.</li>
+                    <li>In the list of available blocks that appears, find and select your app block, named "<strong>Buy It Now Button</strong>".</li>
+                    <li>The "Buy It Now Button" block will be added to the section. Click and drag the "Buy It Now Button" block to your desired position within the section's blocks. We recommend placing it right below the default "Add to cart" button for a common layout.</li>
+                    <li>Click the <strong>Save</strong> button in the top right corner to apply the changes to your theme.</li>
+                    <li>Visit a product page on your storefront to see the "Buy It Now" button. The default dynamic checkout buttons (like PayPal, Google Pay, Apple Pay) and the "More payment options" link should now be hidden, replaced by your custom button.</li>
+                </ol>
+
+                <h3>Customizing the Button Text:</h3>
+                <p>You can change the text displayed on the "Buy It Now" button:</p>
+                <ol>
+                    <li>In the theme editor (following steps 1-3 above from Setup and Configuration), click on the "Buy It Now Button" block you added in the left sidebar.</li>
+                    <li>In the right sidebar, you will see the block's settings. Find the "<strong>Button label</strong>" field.</li>
+                    <li>Enter your desired text for the button (e.g., "Shop Now", "Proceed to Checkout", "Buy Now").</li>
+                    <li>Click <strong>Save</strong>.</li>
+                </ol>
+            </section>
+
+            <section class="cta-section">
+                <h2>Ready to Simplify Your Checkout?</h2>
+                <p>Install the FCS Buy Now Button Generator today and enhance your customers' shopping experience!</p>
+                <!-- 4. Link to your app on the Shopify App Store -->
+                <a href="#YOUR-SHOPIFY-APP-STORE-LINK" class="cta-button" target="_blank">Get The App on Shopify</a>
+            </section>
+        </main>
+
+        <footer>
+            <p>© <span id="currentYear"></span> FCS Tools. All rights reserved.</p>
+            <p>
+                <!-- 5. Privacy Policy Link -->
+                <a href="#YOUR-PRIVACY-POLICY-LINK">Privacy Policy</a> |
+                <!-- 6. Contact/Support Link -->
+                <a href="#YOUR-CONTACT-LINK">Contact Support</a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Script to set the current year in the footer
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
