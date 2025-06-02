@@ -4,143 +4,223 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FCS Buy Now Button Generator - Shopify App</title>
+    <!-- 引入 Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-            line-height: 1.6;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.5;
             margin: 0;
             padding: 0;
-            background-color: #f8f9fa; /* Light grey background */
-            color: #212529; /* Darker text for better readability */
+            background-color: #f4f7f6;
+            color: #333;
+            font-size: 15px;
         }
         .container {
             width: 90%;
-            max-width: 960px;
-            margin: 30px auto;
-            padding: 25px;
-            background-color: #ffffff; /* White content area */
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            border-radius: 8px;
+            max-width: 900px;
+            margin: 25px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-radius: 10px;
         }
         header {
             text-align: center;
-            padding-bottom: 25px;
-            border-bottom: 1px solid #dee2e6; /* Lighter border */
-            margin-bottom: 25px;
-        }
-        .app-logo {
-            max-width: 180px; /* Slightly larger logo allowance */
-            height: auto;
+            padding-bottom: 20px;
+            background: linear-gradient(to bottom, #ffffff, #f9f9f9);
+            border-bottom: 1px solid #e0e0e0;
             margin-bottom: 20px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
         }
         h1 {
-            font-size: 2.0em; /* Larger main title */
-            color: #007bff; /* Shopify-esque blue */
-            margin-bottom: 10px;
+            font-size: 1.9em;
+            color: #2c3e50;
+            margin-top: 10px;
+            margin-bottom: 8px;
+            font-weight: 600;
         }
+        header p {
+            font-size: 0.95em;
+            color: #555;
+            margin-bottom: 0;
+        }
+
         h2 {
-            font-size: 1.75em;
-            color: #343a40; /* Dark grey for section titles */
-            margin-top: 40px;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #007bff; /* Blue accent */
+            font-size: 1.5em;
+            color: #1a5f7a;
+            margin-top: 30px;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #1a5f7a;
             display: inline-block;
+            font-weight: 500;
         }
         h3 {
-            font-size: 1.25em;
-            color: #495057; /* Slightly lighter grey for sub-headings */
-            margin-top: 25px;
-            margin-bottom: 10px;
+            font-size: 1.15em;
+            color: #34495e;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            font-weight: 500;
         }
         p, li {
-            margin-bottom: 15px;
-            color: #495057; /* Consistent text color */
-            font-size: 1.05em;
+            margin-bottom: 10px;
+            color: #4a4a4a;
+            font-size: 0.95em;
+        }
+        ul, ol {
+            padding-left: 25px;
+        }
+        /* 为步骤列表中的链接添加样式 */
+        .setup-guide ol li a {
+            color: #0066cc; /* 链接颜色 */
+            text-decoration: none;
+        }
+        .setup-guide ol li a:hover {
+            text-decoration: underline;
+            color: #004c99;
         }
         .app-description-main {
-            font-size: 1.15em;
-            margin-bottom: 25px;
+            font-size: 1.05em;
+            margin-bottom: 20px;
+            line-height: 1.6;
         }
         .screenshots-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 25px;
+            gap: 20px;
             justify-content: center;
-            margin-top: 25px;
-            padding: 15px 0;
+            margin-top: 20px;
+            padding: 10px 0;
         }
         .screenshots-container img {
             max-width: 100%;
             height: auto;
-            border: 1px solid #ced4da; /* Light border for images */
-            border-radius: 6px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.07);
-            flex-basis: calc(50% - 12.5px); /* For two images side-by-side */
-            max-width: 420px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+            flex-basis: calc(50% - 10px);
+            max-width: 400px;
         }
         .cta-section {
             text-align: center;
-            margin-top: 40px;
-            padding: 25px;
-            background-color: #e9ecef; /* Light grey for CTA background */
+            margin-top: 35px;
+            padding: 20px;
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
             border-radius: 8px;
+            color: #fff;
+        }
+        .cta-section h2 {
+            color: #fff;
+            border-bottom: 2px solid rgba(255,255,255,0.7);
+            margin-top: 0;
+        }
+        .cta-section p {
+            color: #f0f0f0;
         }
         .cta-button {
             display: inline-block;
-            background-color: #28a745; /* Shopify green */
+            background-color: #20c997;
             color: white;
-            padding: 15px 30px;
+            padding: 12px 28px;
             text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 1.1em;
-            margin-top: 15px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            border-radius: 25px;
+            font-weight: 500;
+            font-size: 1em;
+            margin-top: 10px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         .cta-button:hover {
-            background-color: #218838; /* Darker green on hover */
+            background-color: #1baa80;
             transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
         .setup-guide ul, .setup-guide ol {
             padding-left: 20px;
         }
         .setup-guide li {
+            margin-bottom: 8px;
+        }
+        .setup-guide ol ul {
+            margin-top: 5px;
             margin-bottom: 10px;
+            padding-left: 20px;
+        }
+        .setup-guide ol ul li {
+            font-size: 0.9em;
+            margin-bottom: 5px;
         }
         .setup-guide code {
-            background-color: #e9ecef;
-            padding: 2px 6px;
+            background-color: #e8f0fe;
+            padding: 3px 7px;
             border-radius: 4px;
             font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            font-size: 0.9em;
+            color: #2c3e50;
+            border: 1px solid #d1e0f0;
         }
         footer {
             text-align: center;
-            margin-top: 40px;
-            padding-top: 25px;
-            border-top: 1px solid #dee2e6;
-            font-size: 0.95em;
-            color: #6c757d; /* Muted color for footer text */
+            margin-top: 35px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            font-size: 0.9em;
+            color: #6c757d;
         }
         footer a {
-            color: #007bff;
+            color: #0066cc;
             text-decoration: none;
         }
         footer a:hover {
             text-decoration: underline;
+            color: #004c99;
+        }
+        footer span {
+            margin-left: 10px;
+            padding-left: 10px;
+            border-left: 1px solid #ccc;
+        }
+        main > p > a {
+            display: inline-block;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        main > p > a:hover {
+            text-decoration: underline;
+            color: #0056b3;
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 900px) {
-            h1 { font-size: 2em; }
-            h2 { font-size: 1.5em; }
-            .screenshots-container img {
-                flex-basis: 100%; /* Stack images on smaller screens */
-                max-width: 100%;
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px;
             }
             .container {
                 width: 95%;
-                padding: 20px;
+                padding: 15px;
+                margin: 15px auto;
+            }
+            h1 { font-size: 1.7em; }
+            h2 { font-size: 1.35em; }
+            h3 { font-size: 1.1em; }
+            .app-description-main { font-size: 1em; }
+            p, li { font-size: 0.9em; }
+
+            .screenshots-container img {
+                flex-basis: 100%;
+                max-width: 100%;
+            }
+            .cta-button {
+                padding: 10px 22px;
+                font-size: 0.95em;
             }
         }
     </style>
@@ -159,9 +239,9 @@
                     This app solves the problem of crowded product pages and potentially confusing multiple payment options by providing a single, clear "Buy it now" button. It allows merchants to effectively replace the default dynamic checkout buttons and the "More payment options" link. Instead of presenting multiple express checkout options upfront, customers are directed straight from the product page to a unified checkout experience when clicking your dedicated button.
                 </p>
             </section>
-<p style="margin-top: 22px;">
-    <a href="#setup-guide">Learn how to set up the app »</a>
-</p>
+            <p style="text-align: center; margin-top: -5px; margin-bottom: 25px;">
+                <a href="#setup-guide">Learn how to set up the app »</a>
+            </p>
             <section id="key-features">
                 <h2>Key Features</h2>
                 <ul>
@@ -170,15 +250,14 @@
                     <li><strong>Direct to Checkout:</strong> Sends customers directly to the standard Shopify checkout process.</li>
                     <li><strong>Easy Integration:</strong> Utilizes Shopify's App Block system for seamless theme integration.</li>
                     <li><strong>Customizable Button Text:</strong> Tailor the button label to match your brand's voice.</li>
+                    <li><strong>Flexible Styling Options:</strong> Customize button colors (background, text, border) or let it match your theme's "Add to cart" button.</li>
                 </ul>
             </section>
 
             <section id="visuals">
                 <h2>See It In Action</h2>
                 <div class="screenshots-container">
-                    <!-- 2. Screenshot 1 - Replace with your image -->
                     <img src="images/before.png" alt="Screenshot of Product Page Before App">
-                    <!-- 3. Screenshot 2 - Replace with your image -->
                     <img src="images/after.png" alt="Screenshot of Product Page After App with Buy Now Button">
                 </div>
             </section>
@@ -198,7 +277,7 @@
                 <h3>Setup and Configuration:</h3>
                 <p>To add the "Buy It Now" button to a product page:</p>
                 <ol>
-                    <li>Go to your Shopify Admin and navigate to <strong>Online Store > Themes</strong>.</li>
+                    <li><a href="https://admin.shopify.com/" target="_blank" rel="noopener noreferrer">Go to your Shopify Admin</a> and navigate to <strong>Online Store > Themes</strong>.</li>
                     <li>Find your active theme and click the <strong>Customize</strong> button.</li>
                     <li>In the theme editor, use the page selector dropdown at the top (usually showing "Home page") to select <strong>Products > Default product</strong>. If you use custom product templates, select the specific template where you want the button.</li>
                     <li>In the left sidebar that shows your page structure, find the section that typically contains your product form. This is often named "Product information", "Product details", or similar. Click on this section to expand its settings.</li>
@@ -209,20 +288,26 @@
                     <li>Visit a product page on your storefront to see the "Buy It Now" button. The default dynamic checkout buttons (like PayPal, Google Pay, Apple Pay) and the "More payment options" link should now be hidden, replaced by your custom button.</li>
                 </ol>
 
-                <h3>Customizing the Button Text:</h3>
-                <p>You can change the text displayed on the "Buy It Now" button:</p>
+                <h3>Customizing the Button Appearance:</h3>
+                <p>You can customize the text and appearance of your "Buy It Now" button:</p>
                 <ol>
-                    <li>In the theme editor (following steps 1-3 above from Setup and Configuration), click on the "Buy It Now Button" block you added in the left sidebar.</li>
-                    <li>In the right sidebar, you will see the block's settings. Find the "<strong>Button label</strong>" field.</li>
-                    <li>Enter your desired text for the button (e.g., "Shop Now", "Proceed to Checkout", "Buy Now").</li>
-                    <li>Click <strong>Save</strong>.</li>
+                    <li>In the theme editor (following steps 1-3 under "Setup and Configuration"), click on the "<strong>FCS Buy Now Button Generator</strong>" block you added in the left sidebar.</li>
+                    <li>In the right sidebar, you will see the block's settings. Here you can customize:
+                        <ul>
+                            <li><strong>Button label:</strong> Enter your desired text for the button (e.g., "Shop Now", "Proceed to Checkout", "Buy Now").</li>
+                            <li><strong>Button background color:</strong> Choose a custom background color for your button.</li>
+                            <li><strong>Button text color:</strong> Select a custom color for the button's text.</li>
+                            <li><strong>Button border color:</strong> Define a custom border color for the button.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Default Styling:</strong> If you do not specify custom colors for the background, text, or border, the "Buy It Now" button will attempt to inherit the styling (colors, fonts, etc.) from your theme's default "Add to cart" button to maintain a consistent look and feel.</li>
+                    <li>Click <strong>Save</strong> in the top right corner of the theme editor to apply your changes.</li>
                 </ol>
             </section>
 
             <section class="cta-section">
                 <h2>Ready to Simplify Your Checkout?</h2>
                 <p>Install the FCS Buy Now Button Generator today and enhance your customers' shopping experience!</p>
-                <!-- 4. Link to your app on the Shopify App Store -->
                 <a href="#YOUR-SHOPIFY-APP-STORE-LINK" class="cta-button" target="_blank">Get The App on Shopify</a>
             </section>
         </main>
@@ -230,15 +315,13 @@
         <footer>
             <p>© <span id="currentYear"></span> FCS Tools. All rights reserved.</p>
             <p>
-                <!-- 5. Privacy Policy Link -->
                 <a href="privacy-policy.html">Privacy Policy</a>
-             <span>Contact Support: fcstools.developer@gmail.com</span>
+                <span>Contact Support: fcstools.developer@gmail.com</span>
             </p>
         </footer>
     </div>
 
     <script>
-        // Script to set the current year in the footer
         document.getElementById("currentYear").textContent = new Date().getFullYear();
     </script>
 </body>
