@@ -1,27 +1,97 @@
-        /* ... 其他 CSS 保持不变 ... */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You for Installing FCS Buy Now Button Generator!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-        main.thank-you-content { /* 为感谢页面的 main 添加特定 class */
-            padding: 30px 25px; /* 调整内边距 */
-            text-align: center; /* 内容居中 */
-            flex-grow: 1; /* 让 main 区域填充 */
+    <style>
+        body {
+            font-family: 'Roboto', 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.45;
+            margin: 0;
+            padding: 0;
+            background-color: #eef1f5;
+            color: #2c3e50;
+            font-size: 14px;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* 垂直居中感谢信息和按钮 */
+            min-height: 100vh;
+        }
+        .container {
+            width: 90%;
+            max-width: 880px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+            border-radius: 12px;
+            overflow: hidden;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #1c1e32 0%, #4a0e63 100%);
+            color: #ffffff;
+            position: relative;
+        }
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+        header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2em;
+            color: #ffffff;
+            margin-top: 0;
+            margin-bottom: 5px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 0.5px;
+        }
+        header p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1em;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 0;
+            font-weight: 300;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        main.thank-you-content {
+            padding: 30px 25px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         main.thank-you-content h2 {
             font-family: 'Poppins', sans-serif;
-            font-size: 1.8em; /* 感谢标题可以大一点 */
+            font-size: 1.8em;
             color: #1670a8;
-            margin-top: 0; /* 移除默认的 H2 上边距 */
+            margin-top: 0;
             margin-bottom: 15px;
             font-weight: 600;
-            border-bottom: none; /* 感谢页的标题不需要下划线 */
+            border-bottom: none;
         }
         main.thank-you-content p {
-            font-size: 1.05em; /* 感谢信息文字大小 */
+            font-size: 1.05em;
             color: #455a64;
-            margin-bottom: 30px; /* 增加与按钮的间距 */
+            margin-bottom: 30px;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
@@ -29,32 +99,33 @@
 
         .action-buttons {
             display: flex;
-            flex-direction: column; /* 默认堆叠按钮 */
-            gap: 15px; /* 按钮之间的间距 */
-            align-items: center; /* 居中按钮 */
-            width: 100%; /* 让按钮容器占满可用宽度，方便按钮自身宽度的控制 */
-            max-width: 550px; /* 给按钮容器一个最大宽度，避免在大屏幕上按钮拉得太开 */
-            margin-left: auto; /* 居中按钮容器 */
-            margin-right: auto; /* 居中按钮容器 */
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+            width: 100%;
+            max-width: 550px; /* Adjust as needed for overall button container width */
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .flat-button {
-            display: block; /* 改为 block 或 inline-block 配合 width: 100% (在堆叠时) */
-            width: 100%; /* 在堆叠时，让按钮宽度与父容器一致 */
-            padding: 12px 20px; /* 统一padding，宽度主要由父容器和flex控制 */
+            display: block;
+            width: 100%; /* Full width in stacked mode, respects parent's max-width */
+            padding: 12px 20px;
             font-size: 1em;
             font-weight: 500;
-            text-align: center; /* 确保按钮内文字居中 */
+            text-align: center;
             text-decoration: none;
             border-radius: 6px;
             transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
-            box-sizing: border-box; /* 确保 padding 和 border 不会增加实际宽度 */
+            box-sizing: border-box;
+            border: 1px solid transparent; /* Base border for consistent height */
         }
 
         .flat-button.primary {
             background-color: #007bff;
             color: #ffffff;
-            border: 1px solid #007bff;
+            border-color: #007bff;
         }
         .flat-button.primary:hover {
             background-color: #0056b3;
@@ -65,7 +136,7 @@
         .flat-button.secondary {
             background-color: #6c757d;
             color: #ffffff;
-            border: 1px solid #6c757d;
+            border-color: #6c757d;
         }
         .flat-button.secondary:hover {
             background-color: #545b62;
@@ -73,43 +144,113 @@
             transform: translateY(-2px);
         }
 
-        /* ... 其他 CSS 保持不变 ... */
+        footer {
+            text-align: center;
+            padding: 20px 25px;
+            background-color: #f8f9fa;
+            border-top: 1px solid #e0e0e0;
+            font-size: 0.85em;
+            color: #5a6872;
+        }
+        footer a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        footer a:hover {
+            text-decoration: underline;
+            color: #004c99;
+        }
+        footer span {
+            margin-left: 8px;
+            padding-left: 8px;
+            border-left: 1px solid #ced4da;
+        }
 
-        /* 响应式调整 */
-        @media (min-width: 600px) { /* 当屏幕宽度大于等于600px时，按钮并排 */
+        /* Responsive adjustments for buttons */
+        @media (min-width: 600px) {
             .action-buttons {
-                flex-direction: row; /* 按钮并排 */
+                flex-direction: row; /* Buttons side-by-side */
             }
             .flat-button {
-                /* 当并排时，如果想让它们平分空间，可以使用 flex: 1; */
-                /* 但由于文本长度不同，直接平分可能导致一个按钮的文本区域很小 */
-                /* 所以我们还是依赖于它们自身的padding和父容器的max-width */
-                /* 如果希望它们宽度严格一致，可以给一个固定的 width 或者 min-width */
-                 width: auto; /* 移除堆叠时的 width: 100% */
-                 flex-grow: 1; /* 让按钮平分 action-buttons 的宽度 */
-                 max-width: 260px; /* 给每个按钮一个最大宽度，防止文本过短时按钮也很大 */
+                width: auto;    /* Allow content to influence width initially */
+                flex-grow: 1;   /* Distribute available space equally */
+                /* Optional: if you want to cap max width رشد后 */
+                /* max-width: 260px; */
             }
-             /* 如果希望并排时也有一个最大宽度，可以这样设置：
-            .flat-button {
-                min-width: 200px;
-                max-width: 250px;
-            }
-            */
         }
+        /* General responsive adjustments for smaller screens */
         @media (max-width: 768px) {
-            /* ... */
-            .flat-button {
-                 /* 在堆叠时，保持 width: 100% 即可，由 .action-buttons 的 max-width 控制 */
+            body {
+                font-size: 13.5px;
             }
-             /* 如果在更小的屏幕上，并排时按钮内容换行，可以考虑在更小的断点改回堆叠 */
+            header {
+                padding: 30px 15px;
+            }
+            header h1 { font-size: 1.9em; }
+            header p { font-size: 0.9em; }
+
+            main.thank-you-content {
+                padding: 25px 15px;
+            }
+            main.thank-you-content h2 { font-size: 1.6em; }
+            main.thank-you-content p { font-size: 1em; }
+            
+            /* Button specific adjustments for smaller screens if needed beyond the <600px stacking */
+            .flat-button {
+                /* Padding and font-size are generally okay due to base settings */
+            }
+
+            footer { font-size: 0.8em; }
         }
-        @media (max-width: 599px) { /* 确保在小屏幕上按钮是堆叠且宽度合适的 */
+        
+        /* Explicit stacking for very small screens if the 600px breakpoint isn't enough */
+        /* This @media block might be redundant if the default (column) and min-width:600px (row) cover all cases well */
+        /* However, it ensures buttons are stacked and full-width on very small viewports */
+        @media (max-width: 599px) {
             .action-buttons {
                 flex-direction: column;
             }
             .flat-button {
-                width: 100%; /* 堆叠时占满父容器（父容器有max-width） */
-                flex-grow: 0; /* 堆叠时不需要flex-grow */
-                max-width: none; /* 移除并排时的max-width */
+                width: 100%; /* Ensure full width when stacked */
+                flex-grow: 0; /* No growing needed when stacked */
+                /* max-width: none; Remove max-width if it was set for side-by-side */
             }
         }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>FCS Buy Now Button Generator</h1>
+            <p>Streamline Your Shopify Checkout Experience & Boost Conversions</p>
+        </header>
+
+        <main class="thank-you-content">
+            <h2>Thank You for Installing! 🎉</h2>
+            <p>We're excited to help you simplify your checkout process. Here are a couple of things you can do next:</p>
+            <div class="action-buttons">
+                <a href="https://admin.shopify.com/" target="_blank" rel="noopener noreferrer" class="flat-button primary">
+                    Go to Shopify Admin to Set Up App
+                </a>
+                <a href="index.html#setup-guide" class="flat-button secondary">
+                    Learn How to Set Up the App
+                </a>
+            </div>
+        </main>
+
+        <footer>
+            <p>© <span id="currentYear"></span> FCS Tools. All rights reserved.</p>
+            <p>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <span>Contact Support: fcstools.developer@gmail.com</span>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
