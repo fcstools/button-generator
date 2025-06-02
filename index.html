@@ -4,224 +4,286 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FCS Buy Now Button Generator - Shopify App</title>
-    <!-- 引入 Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     <style>
         body {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-            line-height: 1.5;
+            font-family: 'Roboto', 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.45; /* 再减小行高 */
             margin: 0;
             padding: 0;
-            background-color: #f4f7f6;
-            color: #333;
-            font-size: 15px;
+            background-color: #eef1f5; /* 更冷的背景色调 */
+            color: #2c3e50; /* 统一主要文字颜色 */
+            font-size: 14px; /* 再次缩小基础字体大小 */
         }
         .container {
             width: 90%;
-            max-width: 900px;
-            margin: 25px auto;
-            padding: 20px;
+            max-width: 880px; /* 再减小最大宽度 */
+            margin: 20px auto; /* 再减小上下边距 */
+            padding: 0; /* 容器的padding移到各个section内部，header特殊处理 */
             background-color: #ffffff;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            border-radius: 10px;
-        }
-        header {
-            text-align: center;
-            padding-bottom: 20px;
-            background: linear-gradient(to bottom, #ffffff, #f9f9f9);
-            border-bottom: 1px solid #e0e0e0;
-            margin-bottom: 20px;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-        }
-        h1 {
-            font-size: 1.9em;
-            color: #2c3e50;
-            margin-top: 10px;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-        header p {
-            font-size: 0.95em;
-            color: #555;
-            margin-bottom: 0;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.07); /* 更柔和的阴影 */
+            border-radius: 12px; /* 更大的圆角 */
+            overflow: hidden; /* 确保子元素的圆角不会溢出 */
         }
 
+        /* ---华丽的 Header 开始--- */
+        header {
+            text-align: center;
+            padding: 40px 20px; /* 增加header的上下内边距 */
+            /* 示例：深蓝到紫色的渐变，你可以替换成你喜欢的颜色或背景图片 */
+            background: linear-gradient(135deg, #1c1e32 0%, #4a0e63 100%);
+            color: #ffffff; /* Header区域文字改为白色 */
+            position: relative; /* 为了可能的装饰元素定位 */
+        }
+        header::before { /* 添加一个微妙的图案叠加层 */
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* background-image: url('your-subtle-pattern.png'); */ /* 如果有图案图片 */
+            /* opacity: 0.1; */
+        }
+        header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2em; /* 调整H1大小 */
+            color: #ffffff;
+            margin-top: 0;
+            margin-bottom: 5px;
+            font-weight: 700; /* 更粗的Poppins */
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* 文字阴影 */
+            letter-spacing: 0.5px;
+        }
+        header p { /* Header 中的副标题 */
+            font-family: 'Roboto', sans-serif;
+            font-size: 1em; /* 调整副标题大小 */
+            color: rgba(255,255,255,0.85); /* 半透明白色 */
+            margin-bottom: 0;
+            font-weight: 300;
+            max-width: 600px; /* 副标题不要太宽 */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        /* ---华丽的 Header 结束--- */
+
+        /* 内容区域的通用内边距 */
+        main section, .setup-guide, .cta-section, footer {
+            padding: 15px 25px; /* 为主要内容区域设置统一内边距 */
+        }
+        main > p { /* "Learn how to set up" 链接的容器 */
+            padding: 0 25px;
+        }
+
+
         h2 {
-            font-size: 1.5em;
-            color: #1a5f7a;
-            margin-top: 30px;
-            margin-bottom: 12px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #1a5f7a;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.4em; /* 缩小 H2 */
+            color: #1670a8; /* 品牌蓝 */
+            margin-top: 25px;  /* 减小上边距 */
+            margin-bottom: 10px; /* 减小下边距 */
+            padding-bottom: 6px;
+            border-bottom: 2px solid #1670a8;
             display: inline-block;
-            font-weight: 500;
+            font-weight: 600;
         }
         h3 {
-            font-size: 1.15em;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1em; /* 缩小 H3 */
             color: #34495e;
-            margin-top: 20px;
-            margin-bottom: 8px;
+            margin-top: 18px;
+            margin-bottom: 6px;
             font-weight: 500;
         }
         p, li {
-            margin-bottom: 10px;
-            color: #4a4a4a;
-            font-size: 0.95em;
+            margin-bottom: 8px; /* 再减小段落和列表项的下边距 */
+            color: #455a64; /* 调整段落文字颜色 */
+            font-size: 0.92em; /* 再缩小段落和列表字体 */
         }
         ul, ol {
-            padding-left: 25px;
+            padding-left: 22px;
         }
-        /* 为步骤列表中的链接添加样式 */
         .setup-guide ol li a {
-            color: #0066cc; /* 链接颜色 */
+            color: #0d6efd;
             text-decoration: none;
+            font-weight: 500;
         }
         .setup-guide ol li a:hover {
             text-decoration: underline;
-            color: #004c99;
+            color: #0a58ca;
         }
         .app-description-main {
-            font-size: 1.05em;
-            margin-bottom: 20px;
-            line-height: 1.6;
+            font-size: 1em; /* 调整描述字体大小 */
+            margin-bottom: 18px;
+            line-height: 1.55;
         }
         .screenshots-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 18px; /* 减小图片间距 */
             justify-content: center;
-            margin-top: 20px;
-            padding: 10px 0;
+            margin-top: 18px;
+            padding: 8px 0;
         }
         .screenshots-container img {
             max-width: 100%;
             height: auto;
-            border: 1px solid #e0e0e0;
+            border: 1px solid #d1d8e0;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.06);
-            flex-basis: calc(50% - 10px);
-            max-width: 400px;
+            box-shadow: 0 3px 7px rgba(0,0,0,0.08);
+            flex-basis: calc(50% - 9px);
+            max-width: 380px; /* 调整图片最大宽度 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .screenshots-container img:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.12);
         }
         .cta-section {
             text-align: center;
-            margin-top: 35px;
-            padding: 20px;
+            margin-top: 30px;
+            padding-top: 25px; /* 增加CTA区域顶部padding */
+            padding-bottom: 25px; /* 增加CTA区域底部padding */
             background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
-            border-radius: 8px;
             color: #fff;
+            /* 从容器中移除圆角，因为容器已经有 overflow:hidden 和圆角了 */
         }
         .cta-section h2 {
             color: #fff;
-            border-bottom: 2px solid rgba(255,255,255,0.7);
+            border-bottom-color: rgba(255,255,255,0.6);
             margin-top: 0;
+            font-size: 1.6em; /* CTA标题可以大一些 */
         }
         .cta-section p {
-            color: #f0f0f0;
+            color: #e0e0e0;
+            font-size: 1em; /* CTA段落字体 */
         }
         .cta-button {
             display: inline-block;
-            background-color: #20c997;
+            background-image: linear-gradient(to right, #28a745 0%, #20c997 51%, #28a745 100%);
+            background-size: 200% auto; /* 为了悬停动画 */
             color: white;
-            padding: 12px 28px;
+            padding: 10px 25px;
             text-decoration: none;
             border-radius: 25px;
             font-weight: 500;
-            font-size: 1em;
-            margin-top: 10px;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 0.95em;
+            margin-top: 8px;
+            transition: all 0.4s ease; /* 平滑所有过渡 */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            border: none; /* 移除默认边框，如果渐变背景不需要的话 */
         }
         .cta-button:hover {
-            background-color: #1baa80;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            background-position: right center; /* 改变渐变位置 */
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
         }
         .setup-guide ul, .setup-guide ol {
             padding-left: 20px;
         }
         .setup-guide li {
-            margin-bottom: 8px;
+            margin-bottom: 7px;
         }
         .setup-guide ol ul {
-            margin-top: 5px;
-            margin-bottom: 10px;
-            padding-left: 20px;
+            margin-top: 4px;
+            margin-bottom: 8px;
+            padding-left: 18px;
         }
         .setup-guide ol ul li {
-            font-size: 0.9em;
-            margin-bottom: 5px;
+            font-size: 0.88em;
+            margin-bottom: 4px;
         }
         .setup-guide code {
-            background-color: #e8f0fe;
-            padding: 3px 7px;
+            background-color: #f0f4f8;
+            padding: 2px 6px;
             border-radius: 4px;
             font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-            font-size: 0.9em;
+            font-size: 0.85em;
             color: #2c3e50;
-            border: 1px solid #d1e0f0;
+            border: 1px solid #d1d8e0;
         }
         footer {
             text-align: center;
-            margin-top: 35px;
+            margin-top: 0; /* 由于padding在footer内，移除外边距 */
             padding-top: 20px;
+            padding-bottom: 20px;
+            background-color: #f8f9fa; /* 页脚背景 */
             border-top: 1px solid #e0e0e0;
-            font-size: 0.9em;
-            color: #6c757d;
+            font-size: 0.85em;
+            color: #5a6872;
+            border-bottom-left-radius: 12px; /* 配合容器圆角 */
+            border-bottom-right-radius: 12px;
         }
         footer a {
             color: #0066cc;
             text-decoration: none;
+            font-weight: 500;
         }
         footer a:hover {
             text-decoration: underline;
             color: #004c99;
         }
         footer span {
-            margin-left: 10px;
-            padding-left: 10px;
-            border-left: 1px solid #ccc;
+            margin-left: 8px;
+            padding-left: 8px;
+            border-left: 1px solid #ced4da;
         }
-        main > p > a {
+        main > p > a { /* "Learn how to set up" link */
             display: inline-block;
-            margin-top: 5px;
-            margin-bottom: 15px;
-            font-size: 0.95em;
-            color: #007bff;
+            margin-top: -10px; /* 向上移动一点 */
+            margin-bottom: 20px;
+            font-size: 0.9em;
+            color: #0d6efd;
             text-decoration: none;
             font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
         }
         main > p > a:hover {
-            text-decoration: underline;
-            color: #0056b3;
+            text-decoration: none;
+            background-color: #e9ecef;
+            color: #0a58ca;
         }
 
         @media (max-width: 768px) {
             body {
-                font-size: 14px;
+                font-size: 13.5px; /* 移动端再小一点 */
             }
             .container {
                 width: 95%;
-                padding: 15px;
                 margin: 15px auto;
+                border-radius: 10px;
             }
-            h1 { font-size: 1.7em; }
-            h2 { font-size: 1.35em; }
-            h3 { font-size: 1.1em; }
-            .app-description-main { font-size: 1em; }
-            p, li { font-size: 0.9em; }
+            header {
+                padding: 30px 15px;
+            }
+            header h1 { font-size: 1.9em; }
+            header p { font-size: 0.9em; }
+
+            main section, .setup-guide, .cta-section, footer {
+                padding: 12px 18px;
+            }
+            main > p { padding: 0 18px; }
+
+            h2 { font-size: 1.3em; margin-top: 20px; margin-bottom: 8px; }
+            h3 { font-size: 1.05em; margin-top: 15px; margin-bottom: 5px;}
+            p, li { font-size: 0.9em; margin-bottom: 7px; }
+            .app-description-main { font-size: 0.95em; }
 
             .screenshots-container img {
                 flex-basis: 100%;
                 max-width: 100%;
             }
+            .cta-section h2 { font-size: 1.4em; }
             .cta-button {
-                padding: 10px 22px;
-                font-size: 0.95em;
+                padding: 9px 20px;
+                font-size: 0.9em;
             }
+            footer { font-size: 0.8em; }
         }
     </style>
 </head>
@@ -229,85 +291,82 @@
     <div class="container">
         <header>
             <h1>FCS Buy Now Button Generator</h1>
-            <p>Streamline Your Shopify Checkout Experience</p>
+            <p>Streamline Your Shopify Checkout Experience & Boost Conversions</p>
         </header>
 
         <main>
             <section id="description">
                 <h2>About The App</h2>
                 <p class="app-description-main">
-                    This app solves the problem of crowded product pages and potentially confusing multiple payment options by providing a single, clear "Buy it now" button. It allows merchants to effectively replace the default dynamic checkout buttons and the "More payment options" link. Instead of presenting multiple express checkout options upfront, customers are directed straight from the product page to a unified checkout experience when clicking your dedicated button.
+                    Tired of cluttered product pages and confusing payment options scaring away customers? Our FCS Buy Now Button Generator elegantly replaces multiple dynamic checkout buttons and the "More payment options" link with a single, crystal-clear "Buy it Now" button. Guide your customers directly to a unified, seamless checkout experience and watch your conversion rates soar.
                 </p>
             </section>
             <p style="text-align: center; margin-top: -5px; margin-bottom: 25px;">
-                <a href="#setup-guide">Learn how to set up the app »</a>
+                <a href="#setup-guide">Learn how to set up the app in minutes »</a>
             </p>
             <section id="key-features">
                 <h2>Key Features</h2>
                 <ul>
-                    <li><strong>Simplified Checkout:</strong> Replaces multiple dynamic buttons with one clear "Buy it Now" button.</li>
-                    <li><strong>Reduced Clutter:</strong> Hides "More payment options" for a cleaner product page.</li>
-                    <li><strong>Direct to Checkout:</strong> Sends customers directly to the standard Shopify checkout process.</li>
-                    <li><strong>Easy Integration:</strong> Utilizes Shopify's App Block system for seamless theme integration.</li>
-                    <li><strong>Customizable Button Text:</strong> Tailor the button label to match your brand's voice.</li>
-                    <li><strong>Flexible Styling Options:</strong> Customize button colors (background, text, border) or let it match your theme's "Add to cart" button.</li>
+                    <li><strong>One-Click Purchase:</strong> Simplify checkout with a prominent, singular "Buy it Now" button.</li>
+                    <li><strong>Declutter Your Page:</strong> Hide confusing dynamic checkout buttons and "More payment options."</li>
+                    <li><strong>Direct to Checkout:</strong> Smoothly transition customers to Shopify's standard checkout.</li>
+                    <li><strong>Seamless Theme Integration:</strong> Effortlessly add via Shopify's App Block system.</li>
+                    <li><strong>Full Customization:</strong> Tailor button text and appearance (colors, borders) to perfectly match your brand, or inherit "Add to cart" styles.</li>
                 </ul>
             </section>
 
             <section id="visuals">
                 <h2>See It In Action</h2>
                 <div class="screenshots-container">
-                    <img src="images/before.png" alt="Screenshot of Product Page Before App">
-                    <img src="images/after.png" alt="Screenshot of Product Page After App with Buy Now Button">
+                    <img src="images/before.png" alt="Shopify Product Page Before FCS Buy Now Button">
+                    <img src="images/after.png" alt="Shopify Product Page After FCS Buy Now Button">
                 </div>
             </section>
 
             <section id="setup-guide" class="setup-guide">
-                <h2>How to Set Up and Use the "Buy It Now Button" App</h2>
-                <p>This guide will walk you through adding and configuring the "Buy It Now Button" App Block on your product pages. This app provides a simplified purchase experience by adding a custom "Buy It Now" button, hiding the default dynamic checkout buttons, and directing customers straight to the standard Shopify checkout.</p>
+                <h2>Quick Setup Guide</h2>
+                <p>Get your custom "Buy It Now" button live in just a few clicks! This guide walks you through adding and configuring the App Block on your product pages.</p>
                 
                 <h3>Prerequisites:</h3>
                 <ul>
-                    <li>Ensure that Dynamic Checkout Buttons are enabled in your Shopify Payments settings. You can find this under <code>Shopify Admin > Settings > Payments > Dynamic checkout buttons</code>.</li>
+                    <li>Ensure Dynamic Checkout Buttons are enabled in your Shopify Payments: <code>Shopify Admin > Settings > Payments > Dynamic checkout buttons</code>.</li>
                 </ul>
 
                 <h3>Installation:</h3>
-                <p>After installing the app from the Shopify App Store or via a direct link, the "Buy It Now Button" functionality becomes available as an App Block within your theme editor.</p>
+                <p>Once installed from the Shopify App Store, the "FCS Buy Now Button Generator" is available as an App Block in your theme editor.</p>
 
-                <h3>Setup and Configuration:</h3>
-                <p>To add the "Buy It Now" button to a product page:</p>
+                <h3>Configuration Steps:</h3>
                 <ol>
-                    <li><a href="https://admin.shopify.com/" target="_blank" rel="noopener noreferrer">Go to your Shopify Admin</a> and navigate to <strong>Online Store > Themes</strong>.</li>
-                    <li>Find your active theme and click the <strong>Customize</strong> button.</li>
-                    <li>In the theme editor, use the page selector dropdown at the top (usually showing "Home page") to select <strong>Products > Default product</strong>. If you use custom product templates, select the specific template where you want the button.</li>
-                    <li>In the left sidebar that shows your page structure, find the section that typically contains your product form. This is often named "Product information", "Product details", or similar. Click on this section to expand its settings.</li>
-                    <li>Inside the section settings in the left sidebar, scroll down and click <strong>Add block</strong>.</li>
-                    <li>In the list of available blocks that appears, find and select your app block, named "<strong>FCS Buy Now Button Generator</strong>".</li>
-                    <li>The "FCS Buy Now Button Generator" block will be added to the section. Click and drag the "FCS Buy Now Button Generator" block to your desired position within the section's blocks. We recommend placing it right below the default "Add to cart" button for a common layout.</li>
-                    <li>Click the <strong>Save</strong> button in the top right corner to apply the changes to your theme.</li>
-                    <li>Visit a product page on your storefront to see the "Buy It Now" button. The default dynamic checkout buttons (like PayPal, Google Pay, Apple Pay) and the "More payment options" link should now be hidden, replaced by your custom button.</li>
+                    <li><a href="https://admin.shopify.com/" target="_blank" rel="noopener noreferrer">Go to your Shopify Admin</a>, then navigate to <strong>Online Store > Themes</strong>.</li>
+                    <li>Find your active theme and click <strong>Customize</strong>.</li>
+                    <li>In the theme editor, use the top page selector to choose <strong>Products > Default product</strong> (or your specific product template).</li>
+                    <li>In the left sidebar (page structure), click the section containing your product form (e.g., "Product information").</li>
+                    <li>Scroll down within that section's settings and click <strong>Add block</strong>.</li>
+                    <li>Select "<strong>FCS Buy Now Button Generator</strong>" from the list.</li>
+                    <li>Drag the new block to your preferred position (we suggest below "Add to cart").</li>
+                    <li>Click <strong>Save</strong>. Your new button is live! Dynamic checkouts and "More payment options" will be hidden.</li>
                 </ol>
 
-                <h3>Customizing the Button Appearance:</h3>
-                <p>You can customize the text and appearance of your "Buy It Now" button:</p>
+                <h3>Button Customization:</h3>
+                <p>Tailor the button's look and feel:</p>
                 <ol>
-                    <li>In the theme editor (following steps 1-3 under "Setup and Configuration"), click on the "<strong>FCS Buy Now Button Generator</strong>" block you added in the left sidebar.</li>
-                    <li>In the right sidebar, you will see the block's settings. Here you can customize:
+                    <li>In the theme editor, click the "<strong>FCS Buy Now Button Generator</strong>" block in the left sidebar.</li>
+                    <li>Adjust settings in the right sidebar:
                         <ul>
-                            <li><strong>Button label:</strong> Enter your desired text for the button (e.g., "Shop Now", "Proceed to Checkout", "Buy Now").</li>
-                            <li><strong>Button background color:</strong> Choose a custom background color for your button.</li>
-                            <li><strong>Button text color:</strong> Select a custom color for the button's text.</li>
-                            <li><strong>Button border color:</strong> Define a custom border color for the button.</li>
+                            <li><strong>Button label:</strong> Set your desired text (e.g., "Instant Purchase", "Quick Buy").</li>
+                            <li><strong>Button background color:</strong> Choose a custom background.</li>
+                            <li><strong>Button text color:</strong> Select a custom text color.</li>
+                            <li><strong>Button border color:</strong> Define a custom border.</li>
                         </ul>
                     </li>
-                    <li><strong>Default Styling:</strong> If you do not specify custom colors for the background, text, or border, the "Buy It Now" button will attempt to inherit the styling (colors, fonts, etc.) from your theme's default "Add to cart" button to maintain a consistent look and feel.</li>
-                    <li>Click <strong>Save</strong> in the top right corner of the theme editor to apply your changes.</li>
+                    <li><strong>Default Styling Note:</strong> If no custom colors are set, the button will aim to match your theme's "Add to cart" button style for consistency.</li>
+                    <li>Click <strong>Save</strong> to apply.</li>
                 </ol>
             </section>
 
             <section class="cta-section">
-                <h2>Ready to Simplify Your Checkout?</h2>
-                <p>Install the FCS Buy Now Button Generator today and enhance your customers' shopping experience!</p>
+                <h2>Ready to Boost Conversions?</h2>
+                <p>Install the FCS Buy Now Button Generator today and offer a cleaner, faster checkout experience!</p>
                 <a href="#YOUR-SHOPIFY-APP-STORE-LINK" class="cta-button" target="_blank">Get The App on Shopify</a>
             </section>
         </main>
