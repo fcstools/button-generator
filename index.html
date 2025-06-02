@@ -9,13 +9,48 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     <style>
+        :root {
+            --header-bg-start: #1c1e32;
+            --header-bg-end: #4a0e63;
+            --header-text: #ffffff;
+            --header-subtitle-text: rgba(255,255,255,0.85);
+
+            --footer-bg: #1c1e32; /* 与Header开始色一致 */
+            --footer-text: rgba(255,255,255,0.7);
+            --footer-link-text: #a0c3ff; /* 浅蓝色链接 */
+            --footer-link-hover-text: #ffffff;
+
+            --button-primary-bg-start: #00aeff; /* 明亮蓝 */
+            --button-primary-bg-end: #007bff;   /* 深一点的蓝 */
+            --button-primary-text: #ffffff;
+
+            --button-secondary-bg: transparent;
+            --button-secondary-text: var(--header-subtitle-text); /* 使用Header副标题颜色 */
+            --button-secondary-border: var(--header-subtitle-text);
+            --button-secondary-hover-bg: rgba(255,255,255,0.1);
+            --button-secondary-hover-text: var(--header-text);
+            --button-secondary-hover-border: var(--header-text);
+
+
+            --cta-button-bg-start: #17ead9; /* 青色系渐变 */
+            --cta-button-bg-end: #6078ea;
+            --cta-button-text: #ffffff;
+
+            --body-bg: #eef1f5;
+            --container-bg: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #455a64;
+            --heading-color: #1670a8; /* 之前H2的颜色，可以保留或调整 */
+            --heading-border: #1670a8;
+        }
+
         body {
             font-family: 'Roboto', 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
             line-height: 1.45;
             margin: 0;
             padding: 0;
-            background-color: #eef1f5;
-            color: #2c3e50;
+            background-color: var(--body-bg);
+            color: var(--text-primary);
             font-size: 14px;
         }
         .container {
@@ -23,7 +58,7 @@
             max-width: 880px;
             margin: 20px auto;
             padding: 0;
-            background-color: #ffffff;
+            background-color: var(--container-bg);
             box-shadow: 0 8px 25px rgba(0,0,0,0.07);
             border-radius: 12px;
             overflow: hidden;
@@ -32,22 +67,14 @@
         header {
             text-align: center;
             padding: 40px 20px;
-            background: linear-gradient(135deg, #1c1e32 0%, #4a0e63 100%);
-            color: #ffffff;
+            background: linear-gradient(135deg, var(--header-bg-start) 0%, var(--header-bg-end) 100%);
+            color: var(--header-text);
             position: relative;
-        }
-        header::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
         }
         header h1 {
             font-family: 'Poppins', sans-serif;
             font-size: 2.2em;
-            color: #ffffff;
+            color: var(--header-text);
             margin-top: 0;
             margin-bottom: 5px;
             font-weight: 700;
@@ -57,7 +84,7 @@
         header p {
             font-family: 'Roboto', sans-serif;
             font-size: 1em;
-            color: rgba(255,255,255,0.85);
+            color: var(--header-subtitle-text);
             margin-bottom: 0;
             font-weight: 300;
             max-width: 600px;
@@ -65,52 +92,51 @@
             margin-right: auto;
         }
 
-        main section, .setup-guide, .cta-section, footer {
+        main section, .setup-guide, .cta-section { /* Footer的padding单独定义 */
             padding: 15px 25px;
         }
-        main > p.learn-more-container { /* 给包含 "Learn more" 按钮的 <p> 添加 class */
-            padding: 0 25px; /* 与其他 section 的 padding 保持一致 */
-            text-align: center; /* 确保按钮在其容器内居中 */
-            margin-top: -5px; /* 之前设置的，可以微调 */
-            margin-bottom: 25px; /* 之前设置的，可以微调 */
+        main > p.learn-more-container {
+            padding: 0 25px;
+            text-align: center;
+            margin-top: -5px;
+            margin-bottom: 25px;
         }
-
 
         h2 {
             font-family: 'Poppins', sans-serif;
             font-size: 1.4em;
-            color: #1670a8;
+            color: var(--heading-color);
             margin-top: 25px;
             margin-bottom: 10px;
             padding-bottom: 6px;
-            border-bottom: 2px solid #1670a8;
+            border-bottom: 2px solid var(--heading-border);
             display: inline-block;
             font-weight: 600;
         }
         h3 {
             font-family: 'Poppins', sans-serif;
             font-size: 1.1em;
-            color: #34495e;
+            color: var(--text-primary); /* 使用主要文本色 */
             margin-top: 18px;
             margin-bottom: 6px;
             font-weight: 500;
         }
         p, li {
             margin-bottom: 8px;
-            color: #455a64;
+            color: var(--text-secondary);
             font-size: 0.92em;
         }
         ul, ol {
             padding-left: 22px;
         }
         .setup-guide ol li a {
-            color: #0d6efd;
+            color: var(--heading-color); /* 与H2颜色一致 */
             text-decoration: none;
             font-weight: 500;
         }
         .setup-guide ol li a:hover {
             text-decoration: underline;
-            color: #0a58ca;
+            filter: brightness(85%);
         }
         .app-description-main {
             font-size: 1em;
@@ -139,50 +165,56 @@
             transform: translateY(-4px);
             box-shadow: 0 6px 12px rgba(0,0,0,0.12);
         }
+
+        /* --- CTA Section (底部的大按钮区域) --- */
         .cta-section {
             text-align: center;
             margin-top: 30px;
             padding-top: 25px;
             padding-bottom: 25px;
-            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
-            color: #fff;
+            /* 与Header风格呼应，但可以反转或使用不同颜色 */
+            background: linear-gradient(135deg, var(--header-bg-end) 0%, var(--header-bg-start) 100%);
+            color: var(--header-text);
         }
         .cta-section h2 {
-            color: #fff;
-            border-bottom-color: rgba(255,255,255,0.6);
+            color: var(--header-text);
+            border-bottom-color: var(--header-subtitle-text);
             margin-top: 0;
             font-size: 1.6em;
         }
         .cta-section p {
-            color: #e0e0e0;
+            color: var(--header-subtitle-text);
             font-size: 1em;
         }
-        .cta-button { /* 这是底部主要的CTA按钮 */
+
+        /* --- 主CTA按钮 (Get The App on Shopify) --- */
+        .cta-button {
             display: inline-block;
-            background-image: linear-gradient(to right, #28a745 0%, #20c997 51%, #28a745 100%);
+            background-image: linear-gradient(to right, var(--cta-button-bg-start) 0%, var(--cta-button-bg-end) 51%, var(--cta-button-bg-start) 100%);
             background-size: 200% auto;
-            color: white;
+            color: var(--cta-button-text);
             padding: 10px 25px;
             text-decoration: none;
             border-radius: 25px;
-            font-weight: 500;
-            font-size: 0.95em;
+            font-weight: 600; /* 加粗 */
+            font-size: 1em; /* 稍微大一点 */
             margin-top: 8px;
             transition: all 0.4s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             border: none;
+            letter-spacing: 0.5px;
         }
         .cta-button:hover {
             background-position: right center;
             transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 6px 15px rgba(40,167,69,0.3); /* 按钮主色调的阴影 */
         }
 
-        /* --- 新增/修改：扁平化按钮样式 --- */
+        /* --- 扁平化按钮样式 (Learn More) --- */
         .flat-button {
-            display: inline-block; /* 改为 inline-block 以便按钮宽度由内容和padding决定 */
-            padding: 10px 22px; /* 调整padding */
-            font-size: 0.9em;   /* 调整字体大小 */
+            display: inline-block;
+            padding: 10px 22px;
+            font-size: 0.9em;
             font-weight: 500;
             text-align: center;
             text-decoration: none;
@@ -190,22 +222,22 @@
             transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
             box-sizing: border-box;
             border: 1px solid transparent;
-            min-width: 200px; /* 给一个最小宽度，确保不会太窄 */
+            min-width: 220px; /* 调整最小宽度 */
         }
 
-        /* 为 "Learn how to set up" 按钮创建一个特定的变体或使用已有的 */
-        .flat-button.learn-more { /* 可以是 .secondary 或一个新的类名 */
-            background-color: #6c757d; /* 例如，使用次要按钮的颜色 */
-            color: #ffffff;
-            border-color: #6c757d;
+        /* "Learn how to set up" 按钮使用次要按钮样式 */
+        .flat-button.learn-more {
+            background-color: var(--button-secondary-bg);
+            color: var(--button-secondary-text);
+            border-color: var(--button-secondary-border);
         }
         .flat-button.learn-more:hover {
-            background-color: #545b62;
-            border-color: #545b62;
+            background-color: var(--button-secondary-hover-bg);
+            color: var(--button-secondary-hover-text);
+            border-color: var(--button-secondary-hover-border);
             transform: translateY(-2px);
         }
         /* --- 扁平化按钮样式结束 --- */
-
 
         .setup-guide ul, .setup-guide ol {
             padding-left: 20px;
@@ -223,41 +255,38 @@
             margin-bottom: 4px;
         }
         .setup-guide code {
-            background-color: #f0f4f8;
+            background-color: rgba(var(--header-bg-start-rgb, 28, 30, 50), 0.1); /* 使用 header 颜色变淡 */
             padding: 2px 6px;
             border-radius: 4px;
             font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
             font-size: 0.85em;
-            color: #2c3e50;
-            border: 1px solid #d1d8e0;
+            color: var(--text-primary);
+            border: 1px solid rgba(var(--header-bg-start-rgb, 28, 30, 50), 0.2);
         }
         footer {
             text-align: center;
             margin-top: 0;
-            padding-top: 20px;
-            padding-bottom: 20px;
-            background-color: #f8f9fa;
-            border-top: 1px solid #e0e0e0;
+            padding: 20px 25px;
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
             font-size: 0.85em;
-            color: #5a6872;
             border-bottom-left-radius: 12px;
             border-bottom-right-radius: 12px;
         }
         footer a {
-            color: #0066cc;
+            color: var(--footer-link-text);
             text-decoration: none;
             font-weight: 500;
         }
         footer a:hover {
             text-decoration: underline;
-            color: #004c99;
+            color: var(--footer-link-hover-text);
         }
         footer span {
             margin-left: 8px;
             padding-left: 8px;
-            border-left: 1px solid #ced4da;
+            border-left: 1px solid rgba(255,255,255,0.2); /* 页脚分隔线颜色 */
         }
-        /* 移除了 main > p > a 的特定样式，因为现在它将使用 .flat-button 样式 */
 
         @media (max-width: 768px) {
             body {
@@ -290,14 +319,19 @@
                 max-width: 100%;
             }
             .cta-section h2 { font-size: 1.4em; }
-            .cta-button { /* 底部主CTA按钮 */
+            .cta-button {
                 padding: 9px 20px;
                 font-size: 0.9em;
             }
-            .flat-button { /* 包括 "Learn more" 按钮 */
-                padding: 9px 18px; /* 移动端可以小一点 */
+            .flat-button {
+                padding: 9px 18px;
                 font-size: 0.85em;
-                min-width: 180px;
+                min-width: auto; /* 移动端让内容决定宽度，因为是单列 */
+                width: 100%; /* 移动端通常希望按钮占满一行 */
+                max-width: 300px; /* 给一个最大宽度 */
+                margin-left:auto;
+                margin-right:auto;
+
             }
             footer { font-size: 0.8em; }
         }
@@ -317,7 +351,6 @@
                     Tired of cluttered product pages and confusing payment options scaring away customers? Our FCS Buy Now Button Generator elegantly replaces multiple dynamic checkout buttons and the "More payment options" link with a single, crystal-clear "Buy it Now" button. Guide your customers directly to a unified, seamless checkout experience and watch your conversion rates soar.
                 </p>
             </section>
-            <!-- 修改这里的 <p> 和 <a> 标签 -->
             <p class="learn-more-container">
                 <a href="#setup-guide" class="flat-button learn-more">Learn how to set up the app in minutes »</a>
             </p>
@@ -399,6 +432,24 @@
 
     <script>
         document.getElementById("currentYear").textContent = new Date().getFullYear();
+         // For CSS variables that use RGB values for opacity
+        const headerBgStartColor = getComputedStyle(document.documentElement).getPropertyValue('--header-bg-start').trim();
+        function hexToRgb(hex) {
+            let r = 0, g = 0, b = 0;
+            if (hex.length === 4) { // #RGB
+                r = parseInt(hex[1] + hex[1], 16);
+                g = parseInt(hex[2] + hex[2], 16);
+                b = parseInt(hex[3] + hex[3], 16);
+            } else if (hex.length === 7) { // #RRGGBB
+                r = parseInt(hex[1] + hex[2], 16);
+                g = parseInt(hex[3] + hex[4], 16);
+                b = parseInt(hex[5] + hex[6], 16);
+            }
+            return `${r}, ${g}, ${b}`;
+        }
+        if (headerBgStartColor) {
+            document.documentElement.style.setProperty('--header-bg-start-rgb', hexToRgb(headerBgStartColor));
+        }
     </script>
 </body>
 </html>
