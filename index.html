@@ -6,7 +6,7 @@
     <title>FCS Buy Now Button Generator - Shopify App</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -14,326 +14,380 @@
             --header-bg-end: #4a0e63;
             --header-text: #ffffff;
             --header-subtitle-text: rgba(255,255,255,0.85);
-
-            --footer-bg: #1c1e32; /* 与Header开始色一致 */
-            --footer-text: rgba(255,255,255,0.7);
-            --footer-link-text: #a0c3ff; /* 浅蓝色链接 */
-            --footer-link-hover-text: #ffffff;
-
-            --button-primary-bg-start: #00aeff; /* 明亮蓝 */
-            --button-primary-bg-end: #007bff;   /* 深一点的蓝 */
-            --button-primary-text: #ffffff;
-
-            --button-secondary-bg: transparent;
-            --button-secondary-text: var(--header-subtitle-text); /* 使用Header副标题颜色 */
-            --button-secondary-border: var(--header-subtitle-text);
-            --button-secondary-hover-bg: rgba(255,255,255,0.1);
-            --button-secondary-hover-text: var(--header-text);
-            --button-secondary-hover-border: var(--header-text);
-
-
-            --cta-button-bg-start: #17ead9; /* 青色系渐变 */
-            --cta-button-bg-end: #6078ea;
-            --cta-button-text: #ffffff;
-
-            --body-bg: #eef1f5;
-            --container-bg: #ffffff;
+            
+            --primary-color: #1670a8;
+            --primary-dark: #0f5f94;
+            --secondary-color: #64748b;
+            --accent-color: #17ead9;
+            --success-color: #10b981;
+            --background: #ffffff;
+            --surface: #eef1f5;
+            --border: #d1d8e0;
             --text-primary: #2c3e50;
             --text-secondary: #455a64;
-            --heading-color: #1670a8; /* 之前H2的颜色，可以保留或调整 */
-            --heading-border: #1670a8;
+            --text-muted: #64748b;
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Roboto', 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-            line-height: 1.45;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: var(--body-bg);
+            background-color: var(--surface);
             color: var(--text-primary);
-            font-size: 14px;
-        }
-        .container {
-            width: 90%;
-            max-width: 880px;
-            margin: 20px auto;
-            padding: 0;
-            background-color: var(--container-bg);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.07);
-            border-radius: 12px;
-            overflow: hidden;
+            font-size: 15px;
         }
 
+        .container {
+            max-width: 1024px;
+            margin: 0 auto;
+            background-color: var(--background);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header */
         header {
-            text-align: center;
-            padding: 40px 20px;
             background: linear-gradient(135deg, var(--header-bg-start) 0%, var(--header-bg-end) 100%);
             color: var(--header-text);
-            position: relative;
-        }
-        header h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.2em;
-            color: var(--header-text);
-            margin-top: 0;
-            margin-bottom: 5px;
-            font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-            letter-spacing: 0.5px;
-        }
-        header p {
-            font-family: 'Roboto', sans-serif;
-            font-size: 1em;
-            color: var(--header-subtitle-text);
-            margin-bottom: 0;
-            font-weight: 300;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            padding: 3rem 2rem;
+            text-align: center;
         }
 
-        main section, .setup-guide, .cta-section { /* Footer的padding单独定义 */
-            padding: 15px 25px;
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0 0 0.5rem 0;
+            letter-spacing: -0.025em;
+            color: var(--header-text);
         }
-        main > p.learn-more-container {
-            padding: 0 25px;
-            text-align: center;
-            margin-top: -5px;
-            margin-bottom: 25px;
+
+        header p {
+            font-size: 1.125rem;
+            color: var(--header-subtitle-text);
+            margin: 0 0 2rem 0;
+            font-weight: 400;
+        }
+
+        .header-cta {
+            margin-top: 1.5rem;
+        }
+
+        /* Main Content */
+        main {
+            padding: 0;
+        }
+
+        .section {
+            padding: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-compact {
+            padding: 1.5rem 2rem;
         }
 
         h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.4em;
-            color: var(--heading-color);
-            margin-top: 25px;
-            margin-bottom: 10px;
-            padding-bottom: 6px;
-            border-bottom: 2px solid var(--heading-border);
-            display: inline-block;
+            font-size: 1.5rem;
             font-weight: 600;
-        }
-        h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.1em;
-            color: var(--text-primary); /* 使用主要文本色 */
-            margin-top: 18px;
-            margin-bottom: 6px;
-            font-weight: 500;
-        }
-        p, li {
-            margin-bottom: 8px;
-            color: var(--text-secondary);
-            font-size: 0.92em;
-        }
-        ul, ol {
-            padding-left: 22px;
-        }
-        .setup-guide ol li a {
-            color: var(--heading-color); /* 与H2颜色一致 */
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .setup-guide ol li a:hover {
-            text-decoration: underline;
-            filter: brightness(85%);
-        }
-        .app-description-main {
-            font-size: 1em;
-            margin-bottom: 18px;
-            line-height: 1.55;
-        }
-        .screenshots-container {
+            color: var(--text-primary);
+            margin: 0 0 1rem 0;
             display: flex;
-            flex-wrap: wrap;
-            gap: 18px;
-            justify-content: center;
-            margin-top: 18px;
-            padding: 8px 0;
+            align-items: center;
+            gap: 0.5rem;
         }
-        .screenshots-container img {
-            max-width: 100%;
-            height: auto;
-            border: 1px solid #d1d8e0;
+
+        h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin: 0 0 1rem 0;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .feature-card {
+            padding: 1.5rem;
+            background: var(--surface);
             border-radius: 8px;
-            box-shadow: 0 3px 7px rgba(0,0,0,0.08);
-            flex-basis: calc(50% - 9px);
-            max-width: 380px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .screenshots-container img:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+            border: 1px solid var(--border);
         }
 
-        /* --- CTA Section (底部的大按钮区域) --- */
-        .cta-section {
+        .feature-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0 0 0.5rem 0;
+        }
+
+        .feature-card p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* Screenshots */
+        .screenshots {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .screenshot-container {
             text-align: center;
-            margin-top: 30px;
-            padding-top: 25px;
-            padding-bottom: 25px;
-            /* 与Header风格呼应，但可以反转或使用不同颜色 */
-            background: linear-gradient(135deg, var(--header-bg-end) 0%, var(--header-bg-start) 100%);
-            color: var(--header-text);
-        }
-        .cta-section h2 {
-            color: var(--header-text);
-            border-bottom-color: var(--header-subtitle-text);
-            margin-top: 0;
-            font-size: 1.6em;
-        }
-        .cta-section p {
-            color: var(--header-subtitle-text);
-            font-size: 1em;
         }
 
-        /* --- 主CTA按钮 (Get The App on Shopify) --- */
-        .cta-button {
-            display: inline-block;
-            background-image: linear-gradient(to right, var(--cta-button-bg-start) 0%, var(--cta-button-bg-end) 51%, var(--cta-button-bg-start) 100%);
-            background-size: 200% auto;
-            color: var(--cta-button-text);
-            padding: 10px 25px;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: 600; /* 加粗 */
-            font-size: 1em; /* 稍微大一点 */
-            margin-top: 8px;
-            transition: all 0.4s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            border: none;
-            letter-spacing: 0.5px;
-        }
-        .cta-button:hover {
-            background-position: right center;
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 6px 15px rgba(40,167,69,0.3); /* 按钮主色调的阴影 */
+        .screenshot-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        /* --- 扁平化按钮样式 (Learn More) --- */
-        .flat-button {
-            display: inline-block;
-            padding: 10px 22px;
-            font-size: 0.9em;
+        .screenshot-label {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
             font-weight: 500;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 6px;
-            transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
-            box-sizing: border-box;
-            border: 1px solid transparent;
-            min-width: 220px; /* 调整最小宽度 */
         }
 
-        /* "Learn how to set up" 按钮使用次要按钮样式 */
-        .flat-button.learn-more {
-            background-color: var(--button-secondary-bg);
-            color: var(--button-secondary-text);
-            border-color: var(--button-secondary-border);
+        /* Setup Guide */
+        .setup-guide {
+            background: linear-gradient(135deg, var(--header-bg-start) 0%, var(--header-bg-end) 100%);
+            color: var(--header-text);
         }
-        .flat-button.learn-more:hover {
-            background-color: var(--button-secondary-hover-bg);
-            color: var(--button-secondary-hover-text);
-            border-color: var(--button-secondary-hover-border);
-            transform: translateY(-2px);
+
+        .setup-guide h2 {
+            color: var(--header-text);
+            border-bottom: 2px solid var(--header-subtitle-text);
+            padding-bottom: 0.5rem;
         }
-        /* --- 扁平化按钮样式结束 --- */
+
+        .setup-guide h3 {
+            color: var(--header-text);
+            margin-top: 2rem;
+        }
+
+        .setup-guide p {
+            color: var(--header-subtitle-text);
+        }
 
         .setup-guide ul, .setup-guide ol {
-            padding-left: 20px;
+            padding-left: 1.5rem;
         }
+
         .setup-guide li {
-            margin-bottom: 7px;
+            margin-bottom: 0.5rem;
+            color: var(--header-subtitle-text);
         }
+
         .setup-guide ol ul {
-            margin-top: 4px;
-            margin-bottom: 8px;
-            padding-left: 18px;
+            margin-top: 0.5rem;
+            margin-bottom: 0.75rem;
+            padding-left: 1.25rem;
         }
+
         .setup-guide ol ul li {
-            font-size: 0.88em;
-            margin-bottom: 4px;
+            font-size: 0.875rem;
+            margin-bottom: 0.25rem;
         }
-        .setup-guide code {
-            background-color: rgba(var(--header-bg-start-rgb, 28, 30, 50), 0.1); /* 使用 header 颜色变淡 */
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-            font-size: 0.85em;
-            color: var(--text-primary);
-            border: 1px solid rgba(var(--header-bg-start-rgb, 28, 30, 50), 0.2);
-        }
-        footer {
-            text-align: center;
-            margin-top: 0;
-            padding: 20px 25px;
-            background-color: var(--footer-bg);
-            color: var(--footer-text);
-            font-size: 0.85em;
-            border-bottom-left-radius: 12px;
-            border-bottom-right-radius: 12px;
-        }
-        footer a {
-            color: var(--footer-link-text);
+
+        .setup-guide a {
+            color: var(--accent-color);
             text-decoration: none;
             font-weight: 500;
         }
+
+        .setup-guide a:hover {
+            text-decoration: underline;
+            color: var(--header-text);
+        }
+
+        .setup-guide strong {
+            color: var(--header-text);
+            font-weight: 600;
+        }
+
+        .setup-guide code {
+            background: rgba(255, 255, 255, 0.15);
+            color: var(--accent-color);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--header-text);
+            border: 1.5px solid var(--header-text);
+        }
+
+        .btn-outline:hover {
+            background: var(--header-text);
+            color: var(--header-bg-start);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--header-bg-end) 0%, var(--header-bg-start) 100%);
+            color: var(--header-text);
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .cta-section h2 {
+            color: var(--header-text);
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-section p {
+            color: var(--header-subtitle-text);
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn-white {
+            background: var(--header-text);
+            color: var(--header-bg-start);
+            font-weight: 600;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+        }
+
+        .btn-white:hover {
+            background: var(--accent-color);
+            color: var(--header-bg-start);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--header-bg-start);
+            color: var(--header-text);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--header-subtitle-text);
+            margin: 0.5rem 0;
+            font-size: 0.875rem;
+        }
+
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
         footer a:hover {
             text-decoration: underline;
-            color: var(--footer-link-hover-text);
-        }
-        footer span {
-            margin-left: 8px;
-            padding-left: 8px;
-            border-left: 1px solid rgba(255,255,255,0.2); /* 页脚分隔线颜色 */
+            color: var(--header-text);
         }
 
+        /* Utility Classes */
+        .icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            fill: currentColor;
+        }
+
+        code {
+            background: var(--surface);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Cascadia Code', monospace;
+            font-size: 0.8125rem;
+            color: var(--primary-color);
+            border: 1px solid var(--border);
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            body {
-                font-size: 13.5px;
-            }
             .container {
-                width: 95%;
-                margin: 15px auto;
-                border-radius: 10px;
+                margin: 0;
             }
+
             header {
-                padding: 30px 15px;
+                padding: 2rem 1rem;
             }
-            header h1 { font-size: 1.9em; }
-            header p { font-size: 0.9em; }
 
-            main section, .setup-guide, .cta-section, footer {
-                padding: 12px 18px;
+            header h1 {
+                font-size: 2rem;
             }
-            main > p.learn-more-container { padding: 0 18px; }
 
-
-            h2 { font-size: 1.3em; margin-top: 20px; margin-bottom: 8px; }
-            h3 { font-size: 1.05em; margin-top: 15px; margin-bottom: 5px;}
-            p, li { font-size: 0.9em; margin-bottom: 7px; }
-            .app-description-main { font-size: 0.95em; }
-
-            .screenshots-container img {
-                flex-basis: 100%;
-                max-width: 100%;
+            .section, .section-compact {
+                padding: 1.5rem 1rem;
             }
-            .cta-section h2 { font-size: 1.4em; }
-            .cta-button {
-                padding: 9px 20px;
-                font-size: 0.9em;
-            }
-            .flat-button {
-                padding: 9px 18px;
-                font-size: 0.85em;
-                min-width: auto; /* 移动端让内容决定宽度，因为是单列 */
-                width: 100%; /* 移动端通常希望按钮占满一行 */
-                max-width: 300px; /* 给一个最大宽度 */
-                margin-left:auto;
-                margin-right:auto;
 
+            .screenshots {
+                grid-template-columns: 1fr;
+                gap: 1rem;
             }
-            footer { font-size: 0.8em; }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .cta-section {
+                padding: 2rem 1rem;
+            }
+
+            .step {
+                padding-left: 2.5rem;
+            }
+
+            .step::before {
+                width: 1.5rem;
+                height: 1.5rem;
+                font-size: 0.75rem;
+            }
         }
     </style>
 </head>
@@ -342,40 +396,62 @@
         <header>
             <h1>FCS Buy Now Button Generator</h1>
             <p>Streamline Your Shopify Checkout Experience & Boost Conversions</p>
+            <div class="header-cta">
+                <a href="#setup-guide" class="btn btn-outline">Learn how to set up the app in minutes »</a>
+            </div>
         </header>
 
         <main>
-            <section id="description">
-                <h2>About The App</h2>
-                <p class="app-description-main">
-                    Tired of cluttered product pages and confusing payment options scaring away customers? Our FCS Buy Now Button Generator elegantly replaces multiple dynamic checkout buttons and the "More payment options" link with a single, crystal-clear "Buy it Now" button. Guide your customers directly to a unified, seamless checkout experience and watch your conversion rates soar.
-                </p>
-            </section>
-            <p class="learn-more-container">
-                <a href="#setup-guide" class="flat-button learn-more">Learn how to set up the app in minutes »</a>
-            </p>
-            <section id="key-features">
-                <h2>Key Features</h2>
-                <ul>
-                    <li><strong>One-Click Purchase:</strong> Simplify checkout with a prominent, singular "Buy it Now" button.</li>
-                    <li><strong>Declutter Your Page:</strong> Hide confusing dynamic checkout buttons and "More payment options."</li>
-                    <li><strong>Direct to Checkout:</strong> Smoothly transition customers to Shopify's standard checkout.</li>
-                    <li><strong>Seamless Theme Integration:</strong> Effortlessly add via Shopify's App Block system.</li>
-                    <li><strong>Full Customization:</strong> Tailor button text and appearance (colors, borders) to perfectly match your brand, or inherit "Add to cart" styles.</li>
-                </ul>
-            </section>
-
-            <section id="visuals">
-                <h2>See It In Action</h2>
-                <div class="screenshots-container">
-                    <img src="images/before.png" alt="Shopify Product Page Before FCS Buy Now Button">
-                    <img src="images/after.png" alt="Shopify Product Page After FCS Buy Now Button">
+            <section class="section">
+                <h2>
+                    <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"/>
+                    </svg>
+                    About This App
+                </h2>
+                <p>Replace cluttered dynamic checkout buttons with a single, professional "Buy Now" button. Guide customers directly to a unified checkout experience and increase conversion rates.</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h4>One-Click Purchase</h4>
+                        <p>Simplify checkout with a prominent "Buy Now" button that cuts through the noise.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Clean Interface</h4>
+                        <p>Hide confusing payment options and create a streamlined product page.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Direct Checkout</h4>
+                        <p>Seamlessly transition customers to Shopify's standard checkout flow.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Full Customization</h4>
+                        <p>Match your brand with custom colors, text, and styling options.</p>
+                    </div>
                 </div>
             </section>
 
-            <section id="setup-guide" class="setup-guide">
+            <section class="section-compact">
+                <h2>
+                    <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"/>
+                    </svg>
+                    Before & After
+                </h2>
+                <div class="screenshots">
+                    <div class="screenshot-container">
+                        <img src="images/before.png" alt="Before: Multiple checkout buttons">
+                        <div class="screenshot-label">Before: Cluttered checkout options</div>
+                    </div>
+                    <div class="screenshot-container">
+                        <img src="images/after.png" alt="After: Single Buy Now button">
+                        <div class="screenshot-label">After: Clean, focused experience</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="setup-guide" class="section setup-guide">
                 <h2>Quick Setup Guide</h2>
-                <p>Get your custom "Buy It Now" button live in just a few clicks! This guide walks you through adding and configuring the App Block on your product pages.</p>
                 
                 <h3>Prerequisites:</h3>
                 <ul>
@@ -415,41 +491,28 @@
             </section>
 
             <section class="cta-section">
-                <h2>Ready to Boost Conversions?</h2>
-                <p>Install the FCS Buy Now Button Generator today and offer a cleaner, faster checkout experience!</p>
-                <a href="#YOUR-SHOPIFY-APP-STORE-LINK" class="cta-button" target="_blank">Get The App on Shopify</a>
+                <h2>Ready to Boost Your Conversions?</h2>
+                <p>Join thousands of merchants who've simplified their checkout process</p>
+                <a href="#YOUR-SHOPIFY-APP-STORE-LINK" class="btn btn-white" target="_blank">
+                    Install on Shopify
+                    <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"/>
+                    </svg>
+                </a>
             </section>
         </main>
 
         <footer>
             <p>© <span id="currentYear"></span> FCS Tools. All rights reserved.</p>
             <p>
-                <a href="privacy-policy.html">Privacy Policy</a>
-                <span>Contact Support: fcstools.developer@gmail.com</span>
+                <a href="privacy-policy.html">Privacy Policy</a> • 
+                <a href="mailto:fcstools.developer@gmail.com">Support</a>
             </p>
         </footer>
     </div>
 
     <script>
         document.getElementById("currentYear").textContent = new Date().getFullYear();
-         // For CSS variables that use RGB values for opacity
-        const headerBgStartColor = getComputedStyle(document.documentElement).getPropertyValue('--header-bg-start').trim();
-        function hexToRgb(hex) {
-            let r = 0, g = 0, b = 0;
-            if (hex.length === 4) { // #RGB
-                r = parseInt(hex[1] + hex[1], 16);
-                g = parseInt(hex[2] + hex[2], 16);
-                b = parseInt(hex[3] + hex[3], 16);
-            } else if (hex.length === 7) { // #RRGGBB
-                r = parseInt(hex[1] + hex[2], 16);
-                g = parseInt(hex[3] + hex[4], 16);
-                b = parseInt(hex[5] + hex[6], 16);
-            }
-            return `${r}, ${g}, ${b}`;
-        }
-        if (headerBgStartColor) {
-            document.documentElement.style.setProperty('--header-bg-start-rgb', hexToRgb(headerBgStartColor));
-        }
     </script>
 </body>
 </html>
