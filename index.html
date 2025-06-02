@@ -111,48 +111,38 @@
             margin: 1.5rem 0 0.75rem 0;
         }
 
-        p { /* General paragraph styling */
+        p {
             color: var(--text-secondary);
             margin: 0 0 1rem 0;
         }
-        section > p:first-of-type { /* Paragraph directly after H2 */
-             margin-top: 0.5rem; /* Add some space if needed */
-        }
 
-
-        /* Features Grid - MODIFIED */
+        /* Features Grid */
         .features-grid {
             display: grid;
-            grid-template-columns: 1fr; /* Default to single column for small screens */
-            gap: 1.25rem;
-            margin-top: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
         }
 
         .feature-card {
-            padding: 1.25rem; /* Reduced padding */
+            padding: 1.5rem;
             background: var(--surface);
             border-radius: 8px;
             border: 1px solid var(--border);
-            display: flex;
-            flex-direction: column;
         }
 
         .feature-card h4 {
             font-size: 1rem;
             font-weight: 600;
             color: var(--text-primary);
-            margin: 0 0 0.4rem 0; /* Reduced margin */
+            margin: 0 0 0.5rem 0;
         }
 
         .feature-card p {
-            font-size: 0.85rem; /* Reduced font size */
+            font-size: 0.875rem;
             color: var(--text-secondary);
             margin: 0;
-            line-height: 1.5; /* Adjusted line height */
-            flex-grow: 1; /* Helps align content if cards have varying text length */
         }
-        /* End of Features Grid Modifications */
-
 
         /* Screenshots */
         .screenshots {
@@ -376,36 +366,41 @@
             }
 
             .screenshots {
-                grid-template-columns: 1fr; /* Screenshots stack on smaller screens */
+                grid-template-columns: 1fr;
                 gap: 1rem;
             }
 
             .features-grid {
-                grid-template-columns: 1fr; /* Ensure features stack on smaller screens */
+                grid-template-columns: 1fr;
                 gap: 1rem;
             }
 
             .cta-section {
                 padding: 2rem 1rem;
             }
-            /* Removed .step related styles as they were not in the original HTML */
-        }
 
-        /* Media query for 2-column layout for features grid */
-        @media (min-width: 600px) { /* Adjust breakpoint as needed */
+            .step {
+                padding-left: 2.5rem;
+            }
+
+            .step::before {
+                width: 1.5rem;
+                height: 1.5rem;
+                font-size: 0.75rem;
+            }
+        }
+        /* 针对嵌入页面  ADD START*/
+        @media (max-width: 576px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* ADD END */
+        @media (min-width: 600px) {
             .features-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
-        /* Optional: For larger screens, if you want more columns */
-        /*
-        @media (min-width: 992px) {
-            .features-grid {
-                grid-template-columns: repeat(4, 1fr); // Or repeat(auto-fit, minmax(200px, 1fr)) for more flexibility
-            }
-        }
-        */
-
     </style>
 </head>
 <body>
@@ -422,7 +417,7 @@
             <section class="section">
                 <h2>
                     <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                        <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"/>
                     </svg>
                     About This App
                 </h2>
@@ -443,7 +438,7 @@
                     </div>
                     <div class="feature-card">
                         <h4>Full Customization</h4>
-                        <p>Match your brand with custom colors, text, and styling options for the button.</p>
+                        <p>Match your brand with custom colors, text, and styling options.</p>
                     </div>
                 </div>
             </section>
@@ -498,7 +493,7 @@
                         <ul>
                             <li><strong>Button label:</strong> Set your desired text (e.g., "Instant Purchase", "Quick Buy").</li>
                             <li><strong>Button background color:</strong> Choose a custom background.</li>
-                            <li><strong>Button text color:</strong> Select a custom text color.</li>
+                            <li><strong>Button text color:</strong> Select a custom color.</li>
                             <li><strong>Button border color:</strong> Define a custom border.</li>
                         </ul>
                     </li>
